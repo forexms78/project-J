@@ -1,2 +1,0 @@
-# project-J
-project-june
