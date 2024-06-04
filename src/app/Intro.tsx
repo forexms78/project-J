@@ -1,34 +1,9 @@
 "use client"
 
-import { motion } from 'framer-motion';
 import React from "react";
-
-const TypingComponent = () => {
-    const [word, setWord] = React.useState('');
-    let sentence = '안녕하세요! 예제입니다.';
-    const currentIndex = React.useRef(0);
-    React.useEffect(() => {
-        const timerId = setInterval(() => {
-            setWord((state) => {
-                const newState = (state += sentence[currentIndex.current]);
-                currentIndex.current += 1;
-                return newState;
-            });
-        }, 100);
-
-        return () => clearTimeout(timerId);
-    }, [sentence]);
-
-    return (
-        <>
-            <p>{word}</p>
-        </>
-    );
-};
+import { motion } from "framer-motion";
 const IntroAni: React.FC = () => {
-    const [word, setWord] = React.useState('');
 
-    TypingComponent()
     return (
         <motion.div className="bg-black w-screen h-screen"
                     initial={{
@@ -40,9 +15,12 @@ const IntroAni: React.FC = () => {
                     transition={{
                         duration: 3
                     }}>
-            <span className="text-white">
-                {word}
-            </span>
+            <div className="text-white w-fit">
+                <div className="animate-typing overflow-hidden
+                whitespace-nowrap border-r-4 border-r-white pr-5
+                text-5xl text-white font-bold">Hello World
+                </div>
+            </div>
         </motion.div>
     );
 }
