@@ -1,12 +1,12 @@
-import Intro from "@/app/Intro";
-import IntroAni from "@/app/Intro";
+import IntroPage from "@/app/IntroPage";
 
 export default function Home() {
   return (
     <main>
-      <IntroAni>
+        <div className="w-screen h-screen">
+            <IntroPage/>
 
-      </IntroAni>
+        </div>
     </main>
   );
 }
