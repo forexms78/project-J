@@ -1,3 +1,120 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+
+    .subtitle {
+        @apply text-2xl font-bold text-gray-300 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)];
+    }
+
+    .cardtitle {
+        @apply text-4xl font-bold text-gray-300 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)];
+    }
+
+    .contentTitle{
+        @apply font-bold shadow-xl
+    }
+
+    .content{
+        @apply ml-1
+    }
+}
+
+
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(-25%);
+        animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    }
+    50% {
+        transform: translateY(0);
+        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+}
+
+
+@layer components {
+    @keyframes move {
+        from { left: 0; }
+        to   { left: 1000px; }
+    }
+    @keyframes fadeOut {
+        from { opacity: 1; }
+        to   { opacity: 0; }
+    }
+    @keyframes changeColor {
+        from { background-color: red; }
+        to   { background-color: blue; }
+    }
+
+    .custom-animation {
+        animation-name: move, fadeOut, changeColor;
+        animation-duration: 5s;
+        animation-iteration-count: infinite;
+    }
+
+    .typing {
+        border-right: 2px solid;
+        white-space: nowrap;
+        overflow: hidden;
+        animation: typing 10s steps(40, end), blink-caret 0.75s step-end infinite;
+    }
+
+    @keyframes typing {
+        from { width: 0; }
+        to { width: 100%; }
+    }
+
+    @keyframes blink-caret {
+        from, to { border-color: transparent; }
+        50% { border-color: black; }
+    }
+
+    .card {
+        transition: transform 1s;
+        transform-style: preserve-3d;
+    }
+
+    .card:hover {
+        transform: rotateY(180deg);
+    }
+
+    .slide-in-left {
+        animation: slideIn 0.5s forwards;
+    }
+
+    @keyframes slideIn {
+        from { transform: translateX(-100%); }
+        to { transform: translateX(0); }
+    }
+
+    .fade-in {
+        animation: fadeIn 2s;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    .spinner {
+        border: 4px solid rgba(0, 0, 0, 0.1);
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border-left-color: #09f;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    .hover-grow:hover {
+        transition: transform 0.5s;
+        transform: scale(1.1);
+    }
+}
